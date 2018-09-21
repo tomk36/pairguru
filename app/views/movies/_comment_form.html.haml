@@ -1,0 +1,12 @@
+= form_for @comment do |f|
+
+  .form-group.row
+
+    = f.hidden_field :user_id, :value => current_user.id
+    = f.hidden_field :movie_id, :value => @movie.id
+    .field.col-lg-2
+      = f.label "Comment"
+    .field.col-lg-8  
+      = f.text_field :box, class: 'form-control'
+    .actions
+      = f.submit 'Save', class: 'btn btn-default'

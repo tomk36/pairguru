@@ -3,3 +3,9 @@
   = @movie.description
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+  -if !@comments.pluck(:user_id).include?(current_user.id)
+    =render 'comment_form'
+  -else
+    %h3= "to add new comment delete your previous comment using link on righthand side"
+  
+= render 'comments_table'

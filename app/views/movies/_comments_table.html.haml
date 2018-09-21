@@ -1,0 +1,12 @@
+%table.table.table-striped
+  %tbody
+
+    - @comments.each_with_index do |comm, i|
+      %tr
+      %td
+        %p= User.find_by(id: comm.user_id).name
+      %td
+        %p= comm.box
+      - if user_signed_in? and comm.user_id == current_user.id 
+        %td
+        %td= link_to 'Destroy', comm, method: :delete, data: { confirm: 'Are you sure?' }

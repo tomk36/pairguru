@@ -12,6 +12,12 @@
 #  updated_at  :datetime
 #
 
+
+
 class Movie < ApplicationRecord
+  include ActiveModel::Validations
+  
   belongs_to :genre
+  has_many :comments
 end
+
