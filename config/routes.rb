@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users_ranking, only: :index
   resources :comments
   devise_for :users
 

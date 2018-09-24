@@ -1,0 +1,16 @@
+.row
+  .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+    %h1.text-center Comments Ranking
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th User
+          %th Number of comments
+      %tbody
+        - @ranking.each_with_index do |rank, i|
+          %tr
+            %td= i + 1
+            %td= rank.first
+            %td= rank.second
+            
