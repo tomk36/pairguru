@@ -30,14 +30,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1
-  def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
-    else
-      render :edit
-    end
-  end
 
   # DELETE /comments/1
   def destroy

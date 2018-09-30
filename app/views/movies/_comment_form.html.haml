@@ -1,12 +1,16 @@
 = form_for @comment do |f|
-
+  - if @comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      %ul
+        - @comment.errors.full_messages.each do |message|
+          %li= message
   .form-group.row
-
     = f.hidden_field :user_id, :value => current_user.id
     = f.hidden_field :movie_id, :value => @movie.id
     .field.col-lg-2
       = f.label "Comment"
     .field.col-lg-8  
-      = f.text_field :box, class: 'form-control'
+      = f.text_field :box, class: 'form-control', placeholder: 'place your comments here'
     .actions
       = f.submit 'Save', class: 'btn btn-default'
